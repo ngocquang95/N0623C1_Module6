@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const arr1 = ["Hoàng", "Hải", "Thịnh"];
+      // const arr2 = ["Đứng", "Hùng"];
+
+      // const totalArray = [...arr1, ...arr2];
+      // const cloneArr1 = [...arr1]; // arr1 và cloneArr1 khác địa chỉ nhau
+
+      // console.log(totalArray);
+
+      const student = {
+        id: 1,
+        name: "Nguyễn Văn A",
+      };
+
+      // const student2 = {...student, score: 9.5}
+
+      const student2 = student;
+      student2.score = 9.5;
+
+      console.log(student);
+      console.log(student2);
+    </script>
+  </body>
+</html>

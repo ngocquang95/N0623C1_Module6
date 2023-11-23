@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      //   arr
+      //     .map((item) => item * 2)
+      //     //   .filter(item => item > 5 && item < 15)
+      //     .filter((item) => item > 5)
+      //     .filter(item < 15)
+      //     .forEach((item, index) => {
+      //       console.log(item, index);
+      //     })
+
+      const products = [
+        {
+          id: 1,
+          name: "Iphone 14promax",
+          price: 15000000,
+          quatity: 5,
+        },
+        {
+          id: 2,
+          name: "Iphone 12promax",
+          price: 10000000,
+          quatity: 10,
+        },
+        {
+          id: 3,
+          name: "Iphone 15promax",
+          price: 25000000,
+          quatity: 15,
+        },
+      ];
+
+      // Tính tổng giá tất cả điện thoại
+      const total = products.reduce(
+        (previousValue, product) =>
+          previousValue + product.price * product.quatity,
+        0
+      );
+      console.log(`Tổng giá tất cả điện thoại ${total}`);
+
+      // const total = arr.reduce((previousValue, item) => {
+      //     return previousValue + item;
+      // }, 0)
+
+      //   console.log(total);
+    </script>
+  </body>
+</html>
