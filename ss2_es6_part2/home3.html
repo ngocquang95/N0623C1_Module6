@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Xây dựng hàm tăng 1 đơn vị
+      function add() {
+        let counter = 0;
+
+        function plus() {
+          counter++;
+          return counter;
+        }
+
+        return plus;
+      }
+
+      // counter = 99;
+      // Không mong muốn xảy ra,
+      // counter phải bảo mật => chỉ được thay đổi khi gọi add
+      const Counter = add(); // Tạo ra vùng nhớ mới để thực thi add
+
+      console.log(Counter()); // 1
+      console.log(Counter()); // 2
+      console.log(Counter()); // 3
+
+      Counter2 = add(); // Tạo ra vùng nhớ mới để thực thi add
+      console.log(Counter2()); // 1 - 4
+      console.log(Counter2()); // 2 - 5
+      console.log(Counter2()); // 3 - 6
+
+      // function plus() {
+      //   return 999;
+      // }
+
+      // const temp = plus;
+
+      // console.log(temp());
+      // console.log(plus());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //window.name = "Nguyễn Văn Window";
+      function showInfo(gender, phone) {
+        console.log(this.id, this.name, gender, phone);
+      }
+
+      const student = {
+        id: 1,
+        name: "Nguyễn Văn A",
+        score: 9.6,
+        //
+      };
+
+      const teacher = {
+        id: 1,
+        name: "Nguyễn Văn B",
+        slary: 123456,
+        //
+      };
+
+      // window.showInfo();
+      // console.log(this);
+      // console.log(window);
+      //showInfo(); <=> showInfo.call()
+      // showInfo.call(student, 'nam', '123456789'); // context
+      // showInfo.apply(teacher, ['nữ', '3163416516']);
+
+      showInfo.bind(student, 'nam', '123456789')(); 
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // hiển thị danh sách sinh viên kèm theo lớp học
+      // call 2 API /students (id, name, score, classId), /class (id, className)
+
+      // Học Lập Trình => callback hell
+      // setTimeout(() => {
+      //   console.log("Học"); // Phải thực hiện xong mới thực hiện /students
+      //   setTimeout(() => {
+      //     console.log("Lập");
+      //     setTimeout(() => {
+      //       console.log("Trình");
+      //     }, 2000);
+      //   }, 2000);
+      // }, 2000);
+
+      // Sử dụng promise => Khắc phục callback hell => ES5
+      // function delay(message, timeout) {
+      //   return new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       resolve(message);
+      //     }, timeout);
+      //   });
+      // }
+
+      // delay("Học", 2000)
+      //   .then((data) => {
+      //     console.log(data);
+
+      //     return delay("Lập", 2000);
+      //   })
+      //   .then((data) => {
+      //     console.log(data);
+
+      //     return delay("Trình", 2000);
+      //   })
+      //   .then((data) => {
+      //     console.log(data);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+
+      // ES6
+      function delay(message, timeout) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve(message);
+            // reject("Tên không được để trống");
+          }, timeout);
+        });
+      }
+
+      async function diplaySlogen() {
+        // Bất đồng bộ => đồng bộ
+        try {
+          console.log(
+            await Promise.all([delay("Hoàng", 2000), delay("Hải", 2000)])
+          );
+          console.log(await delay("Học", 2000));
+          console.log(await delay("Lập", 2000));
+          console.log(await delay("Trình", 2000));
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      diplaySlogen();
+    </script>
+  </body>
+</html>

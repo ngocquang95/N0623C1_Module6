@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // (function () {
+      //   const message = "Hello world!!!";
+
+      //   console.log(message);
+      // })();
+
+      const app = (function () {
+        const arr = [1, 2, 3, 4, 5]; // Dữ liệu được bảo mật
+        
+        return {
+          add(item) {
+            arr.push(item)
+          },
+          showAll() {
+            console.log(arr);
+          }
+        }
+      })();
+
+      app.add(99);
+      app.showAll();
+    </script>
+  </body>
+</html>
