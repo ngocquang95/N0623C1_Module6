@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+      .text-red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <ul>
+      <li>Hoàng</li>
+      <li>Hải</li>
+      <li>Lập</li>
+    </ul> -->
+    <div id="root"></div>
+  </body>
+  <script type="text/babel">
+    // h1 => html
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    async function getData(url) {
+      const body = await fetch(url);
+
+      return body.json();
+    }
+
+    async function render() {
+      const photos = await getData(
+        "https://jsonplaceholder.typicode.com/albums/1/photos"
+      );
+
+      root.render(
+        <>
+          <h1>Thông tin sinh viên</h1>
+          <ul>
+            {photos.map((photo, index) => (
+              <li key={index}>
+                <img src={photo.thumbnailUrl} />
+              </li>
+            ))}
+          </ul>
+        </>
+      );
+    }
+
+    render();
+    //
+
+    // const names = ["Hoàng", "Hải", "Lập", "Nguyễn Văn A"];
+
+    // const ulElement = (
+    //   <ul>{names.map((name) => React.createElement("li", null, name))}</ul>
+    // );
+
+    // // JSX => JS
+
+    // root.render(
+    //   <>
+    //     <h1>Thông tin sinh viên</h1>
+    //     <ul>
+    //       {names.map((name, index) =>
+    //         <li key={index}>{name}</li>
+    //       )}
+    //     </ul>
+    //   </>
+    // );
+  </script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .text-red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <ul>
+      <li>Hoàng</li>
+      <li>Hải</li>
+      <li>Lập</li>
+    </ul> -->
+    <div id="root"></div>
+  </body>
+  <script>
+    // h1 => html
+    const root = document.getElementById("root");
+
+    const names = ["Hoàng", "Hải", "Lập", "Nguyễn Văn A"];
+
+    const ulElement = document.createElement("ul");
+
+    const liElements = names.map(name => {
+      const liElement = document.createElement("li");
+      liElement.innerText = name;
+
+      return liElement;
+    })
+
+    ulElement.append(...liElements);
+
+    root.append(ulElement);
+  </script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+
+    <style>
+      .text-red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <ul>
+      <li>Hoàng</li>
+      <li>Hải</li>
+      <li>Lập</li>
+    </ul> -->
+    <div id="root"></div>
+  </body>
+  <script >
+    // h1 => html
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    const names = ["Hoàng", "Hải", "Lập", "Nguyễn Văn A"];
+
+    const liElements = names.map((name) =>
+      React.createElement("li", null, name)
+    );
+
+    const ulElement = React.createElement("ul", null, liElements);
+
+    const element = <h1 style="color: red">csdfdsf</h1>
+
+    root.render(ulElement);
+  </script>
+</html>

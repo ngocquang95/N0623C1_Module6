@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+      .text-red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="text/babel">
+    // h1 => html
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    const h1Element = (
+      <h1
+        id="heading"
+        className="text-red"
+        style={{
+          backgroundColor: "yellow",
+        }}
+      >
+        Hello world!!
+      </h1>
+    );
+
+    console.dir(h1Element);
+
+    root.render(h1Element);
+  </script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .text-red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // h1 => html
+    const root = document.getElementById("root");
+
+    const h1Element = document.createElement("h1");
+    h1Element.innerText = "Hello world!!";
+    h1Element.id = "heading";
+    h1Element.className = "text-red";
+    h1Element.style.backgroundColor = "yellow";
+
+    console.dir(h1Element);
+
+    root.append(h1Element);
+  </script>
+</html>
