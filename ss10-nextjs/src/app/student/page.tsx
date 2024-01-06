@@ -6,11 +6,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Swal from "sweetalert2";
+import { IStudent } from "../model/student";
 // import Pagination from "../../components/Pagination";
 
 function StudentList() {
-  const [triggerReleadList, setTriggerReleadList] = useState(true);
-  const [students, setStudents] = useState([]);
+  const [triggerReleadList, setTriggerReleadList] = useState<boolean>(true);
+  const [students, setStudents] = useState<IStudent[]>([]);
   useEffect(() => {
     axios
       .get("http://localhost:3001/students")
@@ -20,12 +21,22 @@ function StudentList() {
       .catch((error) => {});
   }, []);
 
-  const handlePageChange = (event) => {
+  const handlePageChange = (event: { selected: boolean }) => {
     console.log(event);
-    setPageOffset(event.selected);
+    // setPageOffset(event.selected);
   };
 
-  const handleDelete = (student) => {
+  const handleDelete = (student: IStudent) => {
+    async function deleteData() {
+      try {
+        await axios.delete(`http://localhost:3001/students/${student.id}`);
+        // delete thành công => setState
+        setTriggerReleadList(!triggerReleadList);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -36,15 +47,6 @@ function StudentList() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        async function deleteData() {
-          try {
-            await axios.delete(`http://localhost:3001/students/${student.id}`);
-            // delete thành công => setState
-            setTriggerReleadList(!triggerReleadList);
-          } catch (error) {
-            console.error(error);
-          }
-        }
         deleteData();
         Swal.fire({
           title: "Deleted!",
@@ -82,11 +84,11 @@ function StudentList() {
               <td>{student.email}</td>
               <td>
                 <Link
-                      className="btn btn-info"
-                      href={`/student/edit/${student.id}`}
-                    >
-                      Edit
-                    </Link>
+                  className="btn btn-info"
+                  href={`/student/edit/${student.id}`}
+                >
+                  Edit
+                </Link>
               </td>
               <td>
                 <button
